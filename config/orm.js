@@ -8,8 +8,28 @@ const orm = {
       cb(data);
     });
   },
-  insertOne: function() {},
-  updateOne: function() {}
+  insertOne: function(name, devoured, cb) {
+    connection.query(
+      "INSERT INTO burgers(burger_name, devoured) VALUES(?, ?)",
+      [name, devoured],
+      function(err, data) {
+        if (err) throw err;
+        console.log(data);
+        cb(data);
+      }
+    );
+  },
+  updateOne: function(devoured, id, cb) {
+    connection.query(
+      "UPDATE burgers SET devoured=? WHERE id=?",
+      [devoured, id],
+      function(err, data) {
+        if (err) throw err;
+        console.log(data);
+        cb(data);
+      }
+    );
+  }
 };
 
 module.exports = orm;
