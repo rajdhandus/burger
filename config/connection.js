@@ -8,11 +8,11 @@ const connectionParams = {
   port: process.env.DB_PORT,
   database: process.env.DB_SCHEMA
 };
-const connection;
+let connection;
 
 //adding JAWSDB_URL
 
-if(process.env.JAWSDB_URL) {
+if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   connection = mysql.createConnection(connectionParams);
