@@ -1,0 +1,23 @@
+.likeBtns,
+.burgerDivs {
+  padding: 5px;
+  margin: 5px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 54px;
+  font-weight: 900;
+  color: antiquewhite;
+}
+
+label,
+#devourHelp {
+  color: antiquewhite !important;
+}
+
+body {
+  background-image: url("../img/serge-esteve-5821-unsplash.jpg");
+  background-color: #cccccc;
+  background-size: cover;
+}

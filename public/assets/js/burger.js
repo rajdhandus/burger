@@ -41,18 +41,33 @@ function loadSavedBurgers() {
   }).then(function(res) {
     console.log(res);
     for (let i = 0; i < res.length; i++) {
+      var card = $("<div>");
+      card.attr("class", "card burgerDivs text-center");
+
+      var cardBody = $("<div>");
+      cardBody.attr("class", "card-body");
+
+      var cardTitle = $("<div>");
+      cardTitle.text(res[i].burger_name);
+      cardTitle.attr("class", "card-title");
+      cardBody.append(cardTitle);
+      card.append(cardBody);
+
+      var likeBtns = $("<button>");
+      likeBtns.attr("class", "btn likeBtns");
+
       if (res[i].devoured === 0) {
-        var burger = $("<p>");
-        burger.text(res[i].burger_name);
-        var likeBtns = $("<button>");
-        likeBtns.attr("id", i + 1 + "_devour");
-        likeBtns.attr("class", "likeBtns");
+        likeBtns.attr("class", "btn-success");
         likeBtns.text("like");
-        burger.append(likeBtns);
-        $("#burgersList").append(burger);
+        likeBtns.attr("id", i + 1 + "_devour");
+        $("#burgersList").append(card);
       } else {
-        $("#devourList").append("<p>" + res[i].burger_name + "</p>");
+        likeBtns.attr("class", "btn-warning");
+        likeBtns.text("unlike");
+        likeBtns.attr("id", i + 1 + "_devour");
+        $("#devourList").append(card);
       }
+      cardBody.append(likeBtns);
     }
   });
 }
