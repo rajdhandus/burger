@@ -13,13 +13,20 @@ $(document).ready(function() {
     e.stopPropagation();
     let clickedBtnId = $(this).attr("id");
     console.log(clickedBtnId.substring(0, clickedBtnId.indexOf("_")));
-    updateBurger(clickedBtnId.substring(0, clickedBtnId.indexOf("_")));
+    updateBurger(clickedBtnId.substring(0, clickedBtnId.indexOf("_")), 1);
+  });
+
+  $("#devourList").on("click", "button.likeBtns", function(e) {
+    e.stopPropagation();
+    let clickedBtnId = $(this).attr("id");
+    console.log(clickedBtnId.substring(0, clickedBtnId.indexOf("_")));
+    updateBurger(clickedBtnId.substring(0, clickedBtnId.indexOf("_")), 0);
   });
 });
 
-function updateBurger(clickedBtnId) {
+function updateBurger(clickedBtnId, like) {
   var data = {
-    devoured: 1
+    devoured: like
   };
   console.log("updateBurger");
   $.ajax({
