@@ -54,15 +54,14 @@ function loadSavedBurgers() {
       card.append(cardBody);
 
       var likeBtns = $("<button>");
-      likeBtns.attr("class", "btn likeBtns");
 
       if (res[i].devoured === 0) {
-        likeBtns.attr("class", "btn-success");
+        likeBtns.attr("class", "btn likeBtns btn-success");
         likeBtns.text("like");
         likeBtns.attr("id", i + 1 + "_devour");
         $("#burgersList").append(card);
       } else {
-        likeBtns.attr("class", "btn-warning");
+        likeBtns.attr("class", "btn likeBtns btn-warning");
         likeBtns.text("unlike");
         likeBtns.attr("id", i + 1 + "_devour");
         $("#devourList").append(card);
