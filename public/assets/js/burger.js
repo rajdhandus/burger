@@ -42,26 +42,27 @@ function loadSavedBurgers() {
     console.log(res);
     for (let i = 0; i < res.length; i++) {
       var card = $("<div>");
-      card.attr("class", "card burgerDivs text-center");
+      card.addClass("card burgerDivs text-center");
 
       var cardBody = $("<div>");
-      cardBody.attr("class", "card-body");
+      cardBody.addClass("card-body");
 
       var cardTitle = $("<div>");
       cardTitle.text(res[i].burger_name);
-      cardTitle.attr("class", "card-title");
+      cardTitle.addClass("card-title");
       cardBody.append(cardTitle);
       card.append(cardBody);
 
       var likeBtns = $("<button>");
+      likeBtns.addClass("btn likeBtns");
 
       if (res[i].devoured === 0) {
-        likeBtns.attr("class", "btn likeBtns btn-success");
+        likeBtns.addClass("btn-success");
         likeBtns.text("like");
         likeBtns.attr("id", i + 1 + "_devour");
         $("#burgersList").append(card);
       } else {
-        likeBtns.attr("class", "btn likeBtns btn-warning");
+        likeBtns.addClass("btn-warning");
         likeBtns.text("unlike");
         likeBtns.attr("id", i + 1 + "_devour");
         $("#devourList").append(card);
