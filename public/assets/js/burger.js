@@ -57,24 +57,24 @@ function loadSavedBurgers() {
       var cardTitle = $("<div>");
       cardTitle.text(res[i].burger_name);
       cardTitle.addClass("card-title");
-      cardBody.append(cardTitle);
-      card.append(cardBody);
 
       var likeBtns = $("<button>");
       likeBtns.addClass("btn likeBtns");
 
       if (res[i].devoured === 0) {
         likeBtns.addClass("btn-success");
-        likeBtns.text("like");
+        likeBtns.text("devour");
         likeBtns.attr("id", i + 1 + "_devour");
         $("#burgersList").append(card);
       } else {
         likeBtns.addClass("btn-warning");
-        likeBtns.text("unlike");
+        likeBtns.text("do-it-again");
         likeBtns.attr("id", i + 1 + "_devour");
         $("#devourList").append(card);
       }
+      cardBody.append(cardTitle);
       cardBody.append(likeBtns);
+      card.append(cardBody);
     }
   });
 }
