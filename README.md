@@ -9,6 +9,8 @@ The application is live - https://serene-peak-55377.herokuapp.com/
 
 * Node.js
 * Express.js
-* MySql
+* MySql (JAWS DB)
 * handlebars.js
 * body-parser
+
+The application is built using MVC Design pattern

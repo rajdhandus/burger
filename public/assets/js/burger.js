@@ -80,10 +80,15 @@ function loadSavedBurgers() {
 }
 
 function addBurger(name) {
+  if (name === "") {
+    alert("Invalid Burger Name");
+    return;
+  }
   var data = {
     burger_name: name,
     devoured: 0
   };
+
   $.ajax({
     dataType: "json",
     contentType: "application/json; charset=utf-8",
